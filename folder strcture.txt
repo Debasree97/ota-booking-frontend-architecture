@@ -1,0 +1,35 @@
+src/
+├── app/
+│   ├── page.tsx
+│   ├── search/page.tsx
+│   ├── results/page.tsx
+│   ├── booking/[flightId]/page.tsx
+│   ├── confirmation/page.tsx
+│   ├── api/
+│   │   ├── flights/route.ts
+│   │   └── bookings/route.ts
+│   └── layout.tsx
+├── components/
+│   ├── layout/
+│   │   └── AppContainer.tsx
+│   ├── search/
+│   │   └── SearchForm.tsx
+│   ├── results/
+│   │   └── FlightCard.tsx
+│   └── booking/
+│       ├── BookingStepper.tsx
+│       ├── TravelerForm.tsx
+│       └── ReviewSummary.tsx
+├── store/
+│   └── booking.store.ts
+├── lib/
+│   ├── constants.ts
+│   ├── utils.ts
+│   ├── types.ts
+│   ├── validators.ts
+│   ├── api.ts
+│   └── mockData.ts
+├── theme/
+│   └── theme.ts
+└── styles/
+    └── globals.css
