@@ -3,10 +3,8 @@
  * Main layout wrapper for all pages in the application
  */
 import type { Metadata } from "next";
-import { ThemeProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import { theme } from "@/theme/theme";
 import "@/styles/globals.css";
+import ThemeRegistry from "@/components/layout/ThemeRegistry";
 
 export const metadata: Metadata = {
   title: "OTA Booking - Flight Search & Booking",
@@ -20,11 +18,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          {children}
-        </ThemeProvider>
+      <body suppressHydrationWarning>
+        <ThemeRegistry>{children}</ThemeRegistry>
       </body>
     </html>
   );
