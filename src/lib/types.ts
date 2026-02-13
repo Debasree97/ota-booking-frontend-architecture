@@ -3,4 +3,10 @@
  * Common type definitions used across multiple features
  */
 
-// Type definitions will be added here
+export interface Flight {
+  id: string;
+  airline: string;
+  price: number;
+  duration: string;
+  departureTime: string;
+}
