@@ -1,7 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Empty turbopack config to silence the warning
-  turbopack: {},
+  experimental: {
+    turbo: {
+      resolveExtensions: [
+        ".mdx",
+        ".tsx",
+        ".ts",
+        ".jsx",
+        ".js",
+        ".mjs",
+        ".mts",
+        ".json",
+      ],
+    },
+  },
+  transpilePackages: ["clsx"],
 };
 
 export default nextConfig;

@@ -10,3 +10,11 @@ export interface Flight {
   duration: string;
   departureTime: string;
 }
+
+// search page
+export interface SearchFormData {
+  from: string;
+  to: string;
+  date: string;
+  fareType: "regular" | "student";
+}

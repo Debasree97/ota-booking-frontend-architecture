@@ -91,3 +91,16 @@ export const flights: Flight[] = [
     departureTime: "13:30",
   },
 ];
+
+export const DESTINATIONS: { value: string; label: string }[] = [
+  { value: "DAC", label: "Dhaka, Bangladesh" },
+  { value: "NYC", label: "New York, USA" },
+  { value: "LON", label: "London, UK" },
+  { value: "PAR", label: "Paris, France" },
+  { value: "DXB", label: "Dubai, UAE" },
+  { value: "TYO", label: "Tokyo, Japan" },
+  { value: "SYD", label: "Sydney, Australia" },
+  { value: "SIN", label: "Singapore" },
+  { value: "BKK", label: "Bangkok, Thailand" },
+  { value: "CCU", label: "Kolkata, India" },
+];

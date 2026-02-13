@@ -3,8 +3,8 @@
  * Main layout wrapper for all pages in the application
  */
 import type { Metadata } from "next";
-import "@/styles/globals.css";
-import ThemeRegistry from "@/components/layout/ThemeRegistry";
+import "@src/styles/globals.css";
+import ThemeRegistry from "@src/components/layout/ThemeRegistry";
 
 export const metadata: Metadata = {
   title: "OTA Booking - Flight Search & Booking",

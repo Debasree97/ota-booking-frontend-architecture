@@ -10,7 +10,7 @@ import { useServerInsertedHTML } from "next/navigation";
 import { CacheProvider } from "@emotion/react";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import theme from "@/theme/theme";
+import theme from "@src/theme/theme";
 
 // This implementation is taken from https://github.com/mui/material-ui/tree/master/examples/material-ui-nextjs
 export default function ThemeRegistry({
