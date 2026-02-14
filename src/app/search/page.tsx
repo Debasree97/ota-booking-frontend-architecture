@@ -14,8 +14,7 @@ export default function SearchPage() {
       sx={{
         position: "relative",
         minHeight: "100vh",
-        pt: 10,
-        pb: 5,
+        pt: { xs: 4, md: 12 },
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -54,6 +53,7 @@ export default function SearchPage() {
           color: theme.palette.text.light,
           fontWeight: "normal",
           fontSize: "48px",
+          textAlign: "center",
         }}
       >
         Welcome
@@ -64,6 +64,8 @@ export default function SearchPage() {
           fontWeight: 300,
           fontSize: "28px",
           marginBottom: 24,
+          textWrap: "wrap",
+          textAlign: "center",
         }}
       >
         Your Next Destination, Simplified.

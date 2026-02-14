@@ -42,8 +42,8 @@ export default function SearchForm() {
       <Paper
         elevation={0}
         sx={{
-          p: 4,
-          pt: 8,
+          p: { xs: 2, md: 4 },
+          pt: { xs: 4, md: 8 },
           borderRadius: "24px",
           background: "rgba(255, 255, 255, 0.9)",
           backdropFilter: "blur(20px)",
@@ -95,18 +95,27 @@ export default function SearchForm() {
             type="submit"
             variant="contained"
             disabled={isSameDestination}
+            startIcon={<SearchIcon />}
             sx={{
               height: "56px",
-              minWidth: "56px",
-              textAlign: "center",
+              px: { xs: 4, md: 2 },
+              minWidth: { xs: "100%", md: "56px" },
               borderRadius: "8px",
               bgcolor: theme.palette.accent.main,
               fontWeight: "bold",
-              "&:hover": { bgcolor: theme.palette.primary.main },
-              // "&:disabled": { bgcolor: "grey.400" },
+              "&:hover": { bgcolor: "#B8862D" },
+              "&:disabled": { bgcolor: "grey.400" },
+              "& .MuiButton-startIcon": {
+                margin: { xs: "0 8px 0 -4px", md: 0 },
+              },
             }}
           >
-            <SearchIcon />
+            <Box
+              component="span"
+              sx={{ display: { xs: "inline", md: "none" } }}
+            >
+              Search
+            </Box>
           </Button>
         </Box>
 
