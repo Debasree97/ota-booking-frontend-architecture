@@ -8,7 +8,7 @@ import ControlledTextField from "@src/components/common/ControlledTextField";
 import ControlledSelect from "@src/components/common/ControlledSelect";
 import ControlledRadioGroup from "@src/components/common/ControlledRadioGroup";
 import { SearchFormData } from "@src/lib/types";
-import theme from "@src/theme/theme";
+import { PALETTE } from "@src/theme/theme";
 import { DESTINATIONS } from "@src/lib/mockData";
 import SearchIcon from "@mui/icons-material/Search";
 
@@ -101,7 +101,7 @@ export default function SearchForm() {
               px: { xs: 4, md: 2 },
               minWidth: { xs: "100%", md: "56px" },
               borderRadius: "8px",
-              bgcolor: theme.palette.accent.main,
+              bgcolor: PALETTE.accent,
               fontWeight: "bold",
               "&:hover": { bgcolor: "#B8862D" },
               "&:disabled": { bgcolor: "grey.400" },

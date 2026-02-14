@@ -15,31 +15,62 @@ const outfitSans = Outfit({
 export const PALETTE = {
   primary: "#2D1635", // Dark Plum
   accent: "#D49E35", // Golden Ochre
-  secondary: "#E9E2F1", // Soft Lavender
+  secondary: "#E9E2F1", // Soft Lavender (also used as border)
+  muted: "#6B5673",
+  success: "#2E7D32",
+  white: "#FFFFFF",
   textDark: "#2D1635",
   textLight: "#F9F7FA",
 };
 
 const theme = createTheme({
   palette: {
+    mode: "light",
     primary: {
       main: PALETTE.primary,
     },
     secondary: {
       main: PALETTE.secondary,
     },
-    accent: {
-      main: PALETTE.accent,
-      contrastText: "#fff",
-    },
     text: {
-      dark: PALETTE.textDark,
-      light: PALETTE.textLight,
+      primary: PALETTE.textDark,
+      secondary: PALETTE.muted,
     },
+    background: {
+      default: PALETTE.white,
+      paper: PALETTE.white,
+    },
+    divider: PALETTE.secondary,
   },
   typography: {
     fontFamily: outfitSans.style.fontFamily,
+    h1: {
+      fontWeight: 700,
+    },
+    h2: {
+      fontWeight: 600,
+    },
+    h3: {
+      fontWeight: 600,
+    },
+    h4: {
+      fontWeight: 600,
+    },
+    h5: {
+      fontWeight: 600,
+    },
+    h6: {
+      fontWeight: 600,
+    },
+    button: {
+      fontWeight: 600,
+      textTransform: "none",
+    },
   },
+  shape: {
+    borderRadius: 12,
+  },
+  spacing: 8,
 });
 
 export default theme;

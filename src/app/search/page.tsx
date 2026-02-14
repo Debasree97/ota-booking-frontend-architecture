@@ -4,9 +4,9 @@
  */
 
 import { Box } from "@mui/material";
-import Image from "next/image";
 import SearchForm from "@src/components/search/SearchForm";
-import theme from "@src/theme/theme";
+import { PALETTE } from "@src/theme/theme";
+import Image from "next/image";
 
 export default function SearchPage() {
   return (
@@ -50,7 +50,7 @@ export default function SearchPage() {
 
       <h1
         style={{
-          color: theme.palette.text.light,
+          color: PALETTE.textLight,
           fontWeight: "normal",
           fontSize: "48px",
           textAlign: "center",
@@ -60,7 +60,7 @@ export default function SearchPage() {
       </h1>
       <h2
         style={{
-          color: theme.palette.text.light,
+          color: PALETTE.textLight,
           fontWeight: 300,
           fontSize: "28px",
           marginBottom: 24,

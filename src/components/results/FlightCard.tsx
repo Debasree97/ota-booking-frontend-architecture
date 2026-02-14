@@ -1,14 +1,12 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Card, CardContent, Typography, Button, Box } from "@mui/material";
-import { Flight } from "@src/lib/types";
+import { Card, Typography, Button, Box, Stack } from "@mui/material";
+import AirplanemodeActiveIcon from "@mui/icons-material/AirplanemodeActive";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import { PALETTE } from "@src/theme/theme";
 
-interface FlightCardProps {
-  flight: Flight;
-}
-
-export default function FlightCard({ flight }: FlightCardProps) {
+export default function FlightCard({ flight }: { flight: any }) {
   const router = useRouter();
 
   const handleSelect = () => {
@@ -16,34 +14,205 @@ export default function FlightCard({ flight }: FlightCardProps) {
   };
 
   return (
-    <Card sx={{ mb: 2 }}>
-      <CardContent>
+    <Card
+      elevation={0}
+      sx={{
+        mb: 2.5,
+        borderRadius: "24px",
+        border: `1px solid ${PALETTE.secondary}`,
+        bgcolor: PALETTE.white,
+        transition: "all 0.3s ease",
+        "&:hover": {
+          boxShadow: "0 12px 40px rgba(45, 22, 53, 0.08)",
+          borderColor: PALETTE.accent,
+        },
+      }}
+    >
+      <Box
+        sx={{
+          p: { xs: 3, md: 4 },
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          alignItems: "center",
+          gap: { xs: 3, md: 6 },
+        }}
+      >
+        {/* 1. Airline Info (airline) */}
+        <Stack direction="row" spacing={2} sx={{ minWidth: "160px" }}>
+          <Box
+            sx={{
+              width: 44,
+              height: 44,
+              bgcolor: "#F5F0F7",
+              borderRadius: "12px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <AirplanemodeActiveIcon
+              sx={{ color: PALETTE.primary, fontSize: 20 }}
+            />
+          </Box>
+          <Box>
+            <Typography
+              sx={{ fontWeight: 700, color: PALETTE.primary, fontSize: "1rem" }}
+            >
+              {flight.airline}
+            </Typography>
+            <Typography
+              variant="caption"
+              sx={{ color: PALETTE.muted, fontWeight: 600 }}
+            >
+              Flight ID: #{flight.id}
+            </Typography>
+          </Box>
+        </Stack>
+
+        {/* 2. Journey (departureTime, arrivalTime, duration) */}
         <Box
           sx={{
+            flex: 1,
             display: "flex",
-            justifyContent: "space-between",
             alignItems: "center",
+            width: "100%",
+            gap: 3,
           }}
         >
-          <Box>
-            <Typography variant="h6">{flight.airline}</Typography>
-            <Typography color="text.secondary">
-              Departure: {flight.departureTime}
+          <Box sx={{ textAlign: "left" }}>
+            <Typography
+              sx={{
+                fontSize: "1.25rem",
+                fontWeight: 800,
+                color: PALETTE.primary,
+              }}
+            >
+              {flight.departureTime}
             </Typography>
-            <Typography color="text.secondary">
-              Duration: {flight.duration}
+            <Typography
+              variant="caption"
+              sx={{ fontWeight: 600, color: PALETTE.muted }}
+            >
+              DEP
             </Typography>
           </Box>
-          <Box sx={{ textAlign: "right" }}>
-            <Typography variant="h5" color="primary">
-              ${flight.price}
+
+          <Box
+            sx={{
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Typography
+              variant="caption"
+              sx={{ color: PALETTE.muted, mb: 0.5, fontWeight: 700 }}
+            >
+              {flight.duration}
             </Typography>
-            <Button variant="contained" onClick={handleSelect} sx={{ mt: 1 }}>
-              Select
-            </Button>
+            <Box
+              sx={{
+                width: "100%",
+                height: "1.5px",
+                bgcolor: PALETTE.secondary,
+                position: "relative",
+              }}
+            >
+              <AirplanemodeActiveIcon
+                sx={{
+                  fontSize: 14,
+                  color: PALETTE.accent,
+                  position: "absolute",
+                  top: -6.5,
+                  left: "50%",
+                  transform: "translateX(-50%) rotate(90deg)",
+                  bgcolor: PALETTE.white,
+                  px: 0.5,
+                }}
+              />
+            </Box>
+          </Box>
+
+          <Box sx={{ textAlign: "right" }}>
+            <Typography
+              sx={{
+                fontSize: "1.25rem",
+                fontWeight: 800,
+                color: PALETTE.primary,
+              }}
+            >
+              {flight.arrivalTime}
+            </Typography>
+            <Typography
+              variant="caption"
+              sx={{ fontWeight: 600, color: PALETTE.muted }}
+            >
+              ARR
+            </Typography>
           </Box>
         </Box>
-      </CardContent>
+
+        {/* 3. Pricing (prevPrice, discountedPrice, coupon) */}
+        <Stack
+          alignItems={{ xs: "center", md: "flex-end" }}
+          sx={{ minWidth: "160px" }}
+        >
+          <Typography
+            variant="body2"
+            sx={{
+              color: PALETTE.muted,
+              textDecoration: "line-through",
+              fontWeight: 500,
+              mb: -0.5,
+            }}
+          >
+            ${flight.prevPrice}
+          </Typography>
+
+          <Typography
+            variant="h4"
+            sx={{ fontWeight: 900, color: PALETTE.primary }}
+          >
+            ${flight.discountedPrice}
+          </Typography>
+
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: 0.5,
+              mt: 0.5,
+              mb: 1.5,
+            }}
+          >
+            <AutoAwesomeIcon sx={{ fontSize: 12, color: PALETTE.success }} />
+            <Typography
+              variant="caption"
+              sx={{ color: PALETTE.success, fontWeight: 800 }}
+            >
+              {flight.coupon} APPLIED
+            </Typography>
+          </Box>
+
+          <Button
+            variant="contained"
+            onClick={handleSelect}
+            fullWidth
+            sx={{
+              bgcolor: PALETTE.accent,
+              borderRadius: "14px",
+              textTransform: "none",
+              fontWeight: 800,
+              px: 4,
+              py: 1,
+              "&:hover": { bgcolor: "#B8862D" },
+            }}
+          >
+            Select
+          </Button>
+        </Stack>
+      </Box>
     </Card>
   );
 }

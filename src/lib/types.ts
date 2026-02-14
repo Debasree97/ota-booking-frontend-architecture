@@ -6,9 +6,14 @@
 export interface Flight {
   id: string;
   airline: string;
-  price: number;
+  origin: string;
+  destination: string;
+  discountedPrice: number;
+  prevPrice: number;
+  coupon: string;
   duration: string;
   departureTime: string;
+  arrivalTime: string;
 }
 
 // search page
