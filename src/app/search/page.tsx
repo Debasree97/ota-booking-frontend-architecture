@@ -4,6 +4,7 @@
  */
 
 import { Box } from "@mui/material";
+import Image from "next/image";
 import SearchForm from "@src/components/search/SearchForm";
 import theme from "@src/theme/theme";
 
@@ -11,11 +12,8 @@ export default function SearchPage() {
   return (
     <Box
       sx={{
+        position: "relative",
         minHeight: "100vh",
-        // <insert bg>
-        backgroundImage: `linear-gradient(rgba(45, 22, 53, 0.5), rgba(45, 22, 53, 0.2)), url('/heroBG.jpg')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
         pt: 10,
         pb: 5,
         display: "flex",
@@ -23,6 +21,34 @@ export default function SearchPage() {
         alignItems: "center",
       }}
     >
+      {/* Optimized Background Image */}
+      <Image
+        src="/heroBG.jpg"
+        alt="Hero Background"
+        fill
+        priority
+        quality={75}
+        style={{
+          objectFit: "cover",
+          objectPosition: "center",
+          zIndex: -1,
+        }}
+      />
+
+      {/* Gradient Overlay */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background:
+            "linear-gradient(rgba(45, 22, 53, 0.5), rgba(45, 22, 53, 0.2))",
+          zIndex: -1,
+        }}
+      />
+
       <h1
         style={{
           color: theme.palette.text.light,

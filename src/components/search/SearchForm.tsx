@@ -10,6 +10,7 @@ import ControlledRadioGroup from "@src/components/common/ControlledRadioGroup";
 import { SearchFormData } from "@src/lib/types";
 import theme from "@src/theme/theme";
 import { DESTINATIONS } from "@src/lib/mockData";
+import SearchIcon from "@mui/icons-material/Search";
 
 export default function SearchForm() {
   const router = useRouter();
@@ -96,15 +97,16 @@ export default function SearchForm() {
             disabled={isSameDestination}
             sx={{
               height: "56px",
-              px: 4,
-              borderRadius: "12px",
+              minWidth: "56px",
+              textAlign: "center",
+              borderRadius: "8px",
               bgcolor: theme.palette.accent.main,
               fontWeight: "bold",
               "&:hover": { bgcolor: theme.palette.primary.main },
               // "&:disabled": { bgcolor: "grey.400" },
             }}
           >
-            Search
+            <SearchIcon />
           </Button>
         </Box>
 
