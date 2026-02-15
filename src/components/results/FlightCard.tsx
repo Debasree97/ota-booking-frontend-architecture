@@ -30,7 +30,7 @@ export default function FlightCard({ flight }: { flight: any }) {
     >
       <Box
         sx={{
-          p: { xs: 3, md: 4 },
+          p: { xs: 2, md: 3 },
           display: "flex",
           flexDirection: { xs: "column", md: "row" },
           alignItems: "center",
@@ -43,7 +43,7 @@ export default function FlightCard({ flight }: { flight: any }) {
             sx={{
               width: 44,
               height: 44,
-              bgcolor: "#F5F0F7",
+              bgcolor: PALETTE.secondary,
               borderRadius: "12px",
               display: "flex",
               alignItems: "center",
@@ -56,15 +56,15 @@ export default function FlightCard({ flight }: { flight: any }) {
           </Box>
           <Box>
             <Typography
-              sx={{ fontWeight: 700, color: PALETTE.primary, fontSize: "1rem" }}
+              sx={{ fontWeight: 600, color: PALETTE.primary, fontSize: "16px" }}
             >
-              {flight.airline}
+              {flight.origin} - {flight.destination}
             </Typography>
             <Typography
               variant="caption"
-              sx={{ color: PALETTE.muted, fontWeight: 600 }}
+              sx={{ color: PALETTE.muted, fontSize: "16px" }}
             >
-              Flight ID: #{flight.id}
+              {flight.airline}
             </Typography>
           </Box>
         </Stack>
@@ -76,13 +76,13 @@ export default function FlightCard({ flight }: { flight: any }) {
             display: "flex",
             alignItems: "center",
             width: "100%",
-            gap: 3,
+            gap: 2,
           }}
         >
           <Box sx={{ textAlign: "left" }}>
             <Typography
               sx={{
-                fontSize: "1.25rem",
+                fontSize: "16px",
                 fontWeight: 800,
                 color: PALETTE.primary,
               }}
@@ -107,7 +107,7 @@ export default function FlightCard({ flight }: { flight: any }) {
           >
             <Typography
               variant="caption"
-              sx={{ color: PALETTE.muted, mb: 0.5, fontWeight: 700 }}
+              sx={{ color: PALETTE.muted, mb: 1, fontWeight: 700 }}
             >
               {flight.duration}
             </Typography>
@@ -121,10 +121,10 @@ export default function FlightCard({ flight }: { flight: any }) {
             >
               <AirplanemodeActiveIcon
                 sx={{
-                  fontSize: 14,
+                  fontSize: "24px",
                   color: PALETTE.accent,
                   position: "absolute",
-                  top: -6.5,
+                  top: -11.2,
                   left: "50%",
                   transform: "translateX(-50%) rotate(90deg)",
                   bgcolor: PALETTE.white,
@@ -137,7 +137,7 @@ export default function FlightCard({ flight }: { flight: any }) {
           <Box sx={{ textAlign: "right" }}>
             <Typography
               sx={{
-                fontSize: "1.25rem",
+                fontSize: "16px",
                 fontWeight: 800,
                 color: PALETTE.primary,
               }}
@@ -159,7 +159,7 @@ export default function FlightCard({ flight }: { flight: any }) {
           sx={{ minWidth: "160px" }}
         >
           <Typography
-            variant="body2"
+            variant="caption"
             sx={{
               color: PALETTE.muted,
               textDecoration: "line-through",
@@ -171,8 +171,8 @@ export default function FlightCard({ flight }: { flight: any }) {
           </Typography>
 
           <Typography
-            variant="h4"
-            sx={{ fontWeight: 900, color: PALETTE.primary }}
+            variant="h6"
+            sx={{ fontWeight: 800, color: PALETTE.primary }}
           >
             ${flight.discountedPrice}
           </Typography>
@@ -182,8 +182,7 @@ export default function FlightCard({ flight }: { flight: any }) {
               display: "flex",
               alignItems: "center",
               gap: 0.5,
-              mt: 0.5,
-              mb: 1.5,
+              mb: 1,
             }}
           >
             <AutoAwesomeIcon sx={{ fontSize: 12, color: PALETTE.success }} />
@@ -198,15 +197,15 @@ export default function FlightCard({ flight }: { flight: any }) {
           <Button
             variant="contained"
             onClick={handleSelect}
-            fullWidth
+            size="small"
             sx={{
               bgcolor: PALETTE.accent,
-              borderRadius: "14px",
+              borderRadius: "20px",
               textTransform: "none",
               fontWeight: 800,
               px: 4,
               py: 1,
-              "&:hover": { bgcolor: "#B8862D" },
+              "&:hover": { bgcolor: PALETTE.primary },
             }}
           >
             Select
